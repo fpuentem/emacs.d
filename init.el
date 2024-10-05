@@ -189,6 +189,9 @@
 ;; Allow users to provide an optional "init-local" containing personal settings
 (require 'init-local nil t)
 
+;; Add Denote config files
+(requiere 'init-denote)
+
 (provide 'init)
 
 ;; Local Variables:
