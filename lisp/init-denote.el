@@ -1,5 +1,5 @@
 ;;;
-(require 'denote)
+;; (require 'denote)
 
 ;; Remember to check the doc strings of those variables.
 (setq denote-directory (expand-file-name "~/Documents/notes/"))
