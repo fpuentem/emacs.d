@@ -190,7 +190,7 @@
 (require 'init-local nil t)
 
 ;; Add Denote config files
-(require 'init-denote)
+;; (require 'init-denote)
 
 (provide 'init)
 

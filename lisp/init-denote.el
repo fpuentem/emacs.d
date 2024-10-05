@@ -1,5 +1,6 @@
-;;;
-;; (require 'denote)
+;;; Broken version of denote config files
+;; error: Loading file /home/renkel/.emacs.d/lisp/init-denote.el failed to provide featur;; e ‘init-denote’
+(require-package 'denote)
 
 ;; Remember to check the doc strings of those variables.
 (setq denote-directory (expand-file-name "~/Documents/notes/"))
