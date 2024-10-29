@@ -1,7 +1,8 @@
 ;; Setup use-package just in case everything isn't already installed
 (with-eval-after-load 'org
   ;; Must do this so the agenda knows where to look for my files
-  (setq org-agenda-files '("~/org"))
+  ;; (setq org-agenda-files '("~/orgs/notes/2024/"))
+  (setq org-agenda-files (directory-files-recursively "~/orgs/notes/2024" "\\.org$"))
 
   ;; Follow the links
   (setq org-return-follows-link  t)
@@ -26,17 +27,17 @@
 (setq org-capture-templates
       '(
         ("t" "TODO Item"
-         entry (file "~/org/todos.org")
+         entry (file "~/orgs/todos.org")
          "* TODO [#B] %? %^g\n"
          :empty-lines 0)
 
         ("j" "Journal Entry"
-         entry (file+datetree "~/org/journal.org")
+         entry (file+datetree "~/orgs/journal.org")
          "* %?"
          :empty-lines 1)
 
         ("m" "Meeting"
-         entry (file+datetree "~/org/meetings.org")
+         entry (file+datetree "~/orgs/meetings.org")
          "* %? :meeting:%^g \n** Attendees\n - \n** Notes\n** Action Items\n*** TODO [#A] "
          :tree-type week
          :clock-in t
@@ -44,7 +45,7 @@
          :empty-lines 0)
 
         ("n" "Note"
-         entry (file+headline "~/org/notes.org" "Random Notes")
+         entry (file+headline "~/orgs/notes.org" "Random Notes")
          "** %?"
          :empty-lines 0)
         ))
