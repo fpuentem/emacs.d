@@ -24,31 +24,31 @@
   (add-hook 'org-mode-hook 'visual-line-mode))
 
 ;; Add a better capturing templates
-(setq org-capture-templates
-      '(
-        ("t" "TODO Item"
-         entry (file "~/orgs/todos.org")
-         "* TODO [#B] %? %^g\n"
-         :empty-lines 0)
+;; (setq org-capture-templates
+;;       '(
+;;         ("t" "TODO Item"
+;;          entry (file "~/orgs/todos.org")
+;;          "* TODO [#B] %? %^g\n"
+;;          :empty-lines 0)
 
-        ("j" "Journal Entry"
-         entry (file+datetree "~/orgs/journal.org")
-         "* %?"
-         :empty-lines 1)
+;;         ("j" "Journal Entry"
+;;          entry (file+datetree "~/orgs/journal.org")
+;;          "* %?"
+;;          :empty-lines 1)
 
-        ("m" "Meeting"
-         entry (file+datetree "~/orgs/meetings.org")
-         "* %? :meeting:%^g \n** Attendees\n - \n** Notes\n** Action Items\n*** TODO [#A] "
-         :tree-type week
-         :clock-in t
-         :clock-resume t
-         :empty-lines 0)
+;;         ("m" "Meeting"
+;;          entry (file+datetree "~/orgs/meetings.org")
+;;          "* %? :meeting:%^g \n** Attendees\n - \n** Notes\n** Action Items\n*** TODO [#A] "
+;;          :tree-type week
+;;          :clock-in t
+;;          :clock-resume t
+;;          :empty-lines 0)
 
-        ("n" "Note"
-         entry (file+headline "~/orgs/notes.org" "Random Notes")
-         "** %?"
-         :empty-lines 0)
-        ))
+;;         ("n" "Note"
+;;          entry (file+headline "~/orgs/notes.org" "Random Notes")
+;;          "** %?"
+;;          :empty-lines 0)
+;;         ))
 
 ;; Adding tags
 (setq org-tag-alist
