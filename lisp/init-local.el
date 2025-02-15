@@ -2,8 +2,9 @@
 (with-eval-after-load 'org
   ;; Must do this so the agenda knows where to look for my files
   ;; (setq org-agenda-files '("~/orgs/notes/2024/"))
-  (setq org-agenda-files (directory-files-recursively "~/orgs/notes/2024" "\\.org$"))
-
+  (setq org-agenda-files
+        (append (directory-files-recursively "~/orgs/diary/2024" "\\.org$")
+                (directory-files-recursively "~/orgs/diary/2025" "\\.org$")))
   ;; Follow the links
   (setq org-return-follows-link  t)
 
@@ -22,6 +23,7 @@
 
   ;; Wrap the lines in org mode so that things are easier to read
   (add-hook 'org-mode-hook 'visual-line-mode))
+
 
 ;; Add a better capturing templates
 ;; (setq org-capture-templates
@@ -89,5 +91,24 @@
    `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.3))))
    `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.5))))
    `(org-document-title ((t (,@headline ,@variable-tuple :height 1.6 :underline nil))))))
+
+;; Another basic setup with a little more to it.
+(use-package denote
+  :ensure t
+  :hook (dired-mode . denote-dired-mode)
+  :bind
+  (("C-c n n" . denote)
+   ("C-c n r" . denote-rename-file)
+   ("C-c n l" . denote-link)
+   ("C-c n b" . denote-backlinks)
+   ("C-c n d" . denote-sort-dired))
+  :config
+  (setq denote-directory (expand-file-name "~/orgs/notes/"))
+
+  ;; Automatically rename Denote buffers when opening them so that
+  ;; instead of their long file name they have, for example, a literal
+  ;; "[D]" followed by the file's title.  Read the doc string of
+  ;; `denote-rename-buffer-format' for how to modify this.
+  (denote-rename-buffer-mode 1))
 
 (provide 'init-local)
