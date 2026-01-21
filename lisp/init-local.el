@@ -2,9 +2,12 @@
 (with-eval-after-load 'org
   ;; Must do this so the agenda knows where to look for my files
   ;; (setq org-agenda-files '("~/orgs/notes/2024/"))
-  (setq org-agenda-files
-        (append (directory-files-recursively "~/orgs/diary/2024" "\\.org$")
-                (directory-files-recursively "~/orgs/diary/2025" "\\.org$")))
+  (when (file-directory-p "~/orgs")
+    (setq org-agenda-files
+          (append
+           (directory-files-recursively "~/orgs/diary/2024" "\\.org$")
+           (directory-files-recursively "~/orgs/diary/2025" "\\.org$")
+           (directory-files-recursively "~/orgs/diary/2026" "\\.org$"))))
   ;; Follow the links
   (setq org-return-follows-link  t)
 
